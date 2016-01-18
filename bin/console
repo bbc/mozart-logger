@@ -1,0 +1,8 @@
+# rubocop:disable InlineComment
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "mozart/logger"
+
+require "irb"
+IRB.start
