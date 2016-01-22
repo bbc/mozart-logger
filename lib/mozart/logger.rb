@@ -1,7 +1,8 @@
 require "mozart/logger/version"
 require "alephant/logger"
-require "alephant/logger/cloudwatch"
 require "alephant/logger/json"
+require "alephant/logger/statsd"
+require "alephant/logger/cloudwatch"
 require "bbc/cosmos/config"
 
 module Mozart
