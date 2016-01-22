@@ -21,9 +21,13 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.10"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rspec"
+  spec.add_development_dependency "rspec-nc"
+  spec.add_development_dependency "pry"
 
   spec.add_runtime_dependency "alephant-logger", "~> 3"
-  spec.add_runtime_dependency "alephant-logger-cloudwatch", "~> 2"
   spec.add_runtime_dependency "alephant-logger-json", "~> 0"
+  spec.add_runtime_dependency "alephant-logger-statsd", "~> 0"
+  spec.add_runtime_dependency "alephant-logger-cloudwatch", "~> 2"
   spec.add_runtime_dependency "bbc-cosmos-config"
 end
