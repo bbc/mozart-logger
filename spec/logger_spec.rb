@@ -17,7 +17,8 @@ describe Mozart::Logger do
   let(:log_path) { "app.log" }
 
   def enable_live
-    allow(BBC::Cosmos::Config.cosmos).to receive(:environment).and_return("live")
+    allow(BBC::Cosmos::Config.cosmos)
+      .to receive(:environment).and_return("live")
   end
 
   describe ".setup" do
@@ -35,12 +36,14 @@ describe Mozart::Logger do
 
       specify do
         enable_live
-        expect(subject.drivers(opts, log_path)[0]).to be_a Alephant::Logger::JSON
+        first_driver = subject.drivers(opts, log_path)[0]
+        expect(first_driver).to be_a Alephant::Logger::JSON
       end
 
       specify do
         enable_live
-        expect(subject.drivers(opts, log_path)[1]).to be_a Alephant::Logger::Statsd
+        second_driver = subject.drivers(opts, log_path)[1]
+        expect(second_driver).to be_a Alephant::Logger::Statsd
       end
     end
 
@@ -51,12 +54,14 @@ describe Mozart::Logger do
 
       specify do
         enable_live
-        expect(subject.drivers(cloudwatch, log_path)[0]).to be_a Alephant::Logger::JSON
+        first_driver = subject.drivers(cloudwatch, log_path)[0]
+        expect(first_driver).to be_a Alephant::Logger::JSON
       end
 
       specify do
         enable_live
-        expect(subject.drivers(cloudwatch, log_path)[1]).to be_a Alephant::Logger::CloudWatch
+        second_driver = subject.drivers(cloudwatch, log_path)[1]
+        expect(second_driver).to be_a Alephant::Logger::CloudWatch
       end
     end
   end
