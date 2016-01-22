@@ -26,14 +26,25 @@ And then execute:
 ```rb
 require "mozart/logger"
 
-namespace = { 
-  :namespace => ENV["CLOUDWATCH_NAMESPACE"]
+opts = {
+  :statsd => {
+    :host      => ENV["STATSD_HOST"],
+    :port      => 8125,
+    :namespace => "mozart-routing"
+  },
+  :cloudwatch => {
+    :namespace => ENV["CLOUDWATCH_NAMESPACE"]
+  }
 }
 
-Mozart::Logger.setup namespace, ENV["APP_LOG_LOCATION"] # configures Alephant Logger
+Mozart::Logger.setup opts, ENV["APP_LOG_LOCATION"] # configures Alephant Logger
 
 use Rack::CommonLogger, Alephant::Logger.get_logger # optional
 ```
+
+> Note: you should only provide one key  
+> either `:statsd` or `:cloudwatch`  
+> the latter will be ignored if both provided
 
 ## Usage
 
@@ -54,4 +65,4 @@ end
 ```
 
 > Note: for more details, refer to the following gems  
-> [Alephant-Logger-CloudWatch](https://github.com/BBC-News/alephant-logger-cloudwatch) and [Alephant-Logger-JSON](https://github.com/BBC-News/alephant-logger-json)
+> [Alephant-Logger-CloudWatch](https://github.com/BBC-News/alephant-logger-cloudwatch), [Alephant-Logger-Statsd](https://github.com/BBC-News/alephant-logger-statsd/) and [Alephant-Logger-JSON](https://github.com/BBC-News/alephant-logger-json)
