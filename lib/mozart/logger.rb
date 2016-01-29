@@ -19,7 +19,7 @@ module Mozart
     end
 
     def self.metric_driver(opts)
-      return statsd_driver(opts[:statsd])  if opts[:statsd]     && production?
+      return statsd_driver(opts[:statsd])  if opts[:statsd]
       cloudwatch_driver(opts[:cloudwatch]) if opts[:cloudwatch] && production?
     end
 
