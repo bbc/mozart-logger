@@ -14,9 +14,6 @@ group :production do
 end
 ```
 
-> Note: this is a private gem published to  
-> https://gemstore.news.tools.bbc.co.uk/nexus  
-
 And then execute:
 
     $ bundle install
