@@ -1,6 +1,6 @@
 # Mozart::Logger
 
-Private gem for setting up structured logging and metrics for use within our Mozart service applications.
+Internal gem for setting up structured logging and metrics for use within our Mozart service applications.
 
 It is an abstraction wrapping around our open-source software [Alephant Logger](https://github.com/BBC-News/alephant-logger).
 
