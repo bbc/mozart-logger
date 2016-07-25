@@ -1,9 +1,9 @@
-require "mozart/logger/version"
-require "alephant/logger"
-require "alephant/logger/json"
-require "alephant/logger/statsd"
-require "alephant/logger/cloudwatch"
-require "bbc/cosmos/config"
+require 'mozart/logger/version'
+require 'alephant/logger'
+require 'alephant/logger/json'
+require 'alephant/logger/statsd'
+require 'alephant/logger/cloudwatch'
+require 'bbc/cosmos/config'
 
 module Mozart
   module Logger
@@ -42,7 +42,7 @@ module Mozart
     end
 
     def self.production?
-      BBC::Cosmos::Config.cosmos.environment == "live"
+      BBC::Cosmos::Config.cosmos.environment == 'live'
     end
   end
 end
